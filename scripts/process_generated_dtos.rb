@@ -3,7 +3,7 @@
 load 'scripts/wrap_enums.rb'
 
 Dir.glob("src/*").each { |filename|
-	text = File.read(filename)
+    text = File.read(filename)
     text = wrap_enums(text)
     File.open(filename, "w") { |f| f.write(text) }
 }
