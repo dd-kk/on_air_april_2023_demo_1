@@ -1,0 +1,30 @@
+openapi: 3.0.1
+info:
+  title: 'Gateway'
+  description: Gateway Service API  
+paths:
+components:
+  schemas:
+    ProductDto:
+      type: object
+      properties:
+        code:
+          type: string
+        active:
+          type: boolean
+        restriction:
+          enum:
+            - readonly
+            - inaccessible
+          type: string
+    ResourcesDto:
+      type: object
+      properties:
+        navigators:
+          type: array
+          items:
+            type: string
+            enum:
+              - apple_maps
+              - google_maps
+              - waze

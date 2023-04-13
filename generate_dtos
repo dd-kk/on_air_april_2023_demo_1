@@ -1,0 +1,16 @@
+rm -rf src
+mkdir src
+cd src
+swagger-codegen generate -l swift5 -i ../openapi.yaml
+mv SwaggerClient/Classes/Swaggers/Models/* .
+rm -rf SwaggerClient
+rm Cartfile
+rm SwaggerClient.podspec
+rm git_push.sh
+rm .gitignore
+rm -rf .swagger-codegen
+rm .swagger-codegen-ignore
+cd ..
+scripts/process_generated_dtos.rb
+mv src Demo.playground/Sources/
+open Demo.playground
